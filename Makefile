@@ -1,5 +1,7 @@
+export GOPATH=$(PWD)
+
 test:
-	export GOPATH=$(pwd)
+	@echo GOPATH = $(value GOPATH)
 	go test ./...
 
 clean:
