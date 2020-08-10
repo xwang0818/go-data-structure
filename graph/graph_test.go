@@ -7,7 +7,7 @@
 package graph
 
 import "testing"
-import "util"
+import "reflect"
 
 func TestGraphStronglyConnectedComp(t *testing.T) {
     /* 0 1 2 3 4 5 6 7 8 9 10
@@ -26,7 +26,7 @@ func TestGraphStronglyConnectedComp(t *testing.T) {
                         []int{10},
                         []int{1, 2, 0},
                         []int{4, 5, 3}}
-    if !util.TwoDimArraysEqual(expected, result) {
+    if !reflect.DeepEqual(expected, result) {
         t.Errorf("Failed to find strongly connect components")
     }
 }

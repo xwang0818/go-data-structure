@@ -7,15 +7,15 @@
 package tree
 
 import "testing"
-import "util"
+import "reflect"
 
 func TestTreeConstruction(t *testing.T) {
-    arr1 := []int{1,2,3,4,5,6,7}
-    root := constructTreeFromArray(arr1)
-    arr2 := levelOrderIterative(root)
+    a := []int{1,2,3,4,5,6,7}
+    root := constructTreeFromArray(a)
+    b := levelOrderIterative(root)
     // level order is not exactly the same as
     // array used to construct a tree
-    if !util.ArraysEqual(arr1, arr2) {
+    if !reflect.DeepEqual(a, b) {
         t.Errorf("Failed to construct tree")
     }
 }

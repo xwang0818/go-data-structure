@@ -6,30 +6,31 @@
 
 package util
 
-func ArraysEqual(arrOne []int, arrTwo []int) bool {
-    if len(arrOne) != len(arrTwo) {
+func ArraysEqual(a, b []int) bool {
+    if (a == nil) != (b == nil) {
+      return false
+    }
+    if len(a) != len(b) {
         return false
     }
-    for i := 0; i < len(arrOne); i++ {
-        if arrOne[i] != arrTwo[i] {
+    for i := range a {
+        if a[i] != b[i] {
             return false
         }
     }
     return true
 }
 
-func TwoDimArraysEqual(arrOne [][]int, arrTwo [][]int) bool {
-    if len(arrOne) != len(arrTwo) {
+func TwoDimArraysEqual(a, b [][]int) bool {
+    if (a == nil) != (b == nil) {
         return false
     }
-    for i := 0; i < len(arrOne); i++ {
-        if len(arrOne[i]) != len(arrTwo[i]) {
-            return false
-        }
-        for j := 0; j < len(arrOne[i]); j++ {
-            if arrOne[i][j] != arrTwo[i][j] {
-                return false
-            }
+    if len(a) != len(a) {
+        return false
+    }
+    for i := range a {
+        if !ArraysEqual(a[i], b[i]) {
+          return false
         }
     }
     return true
